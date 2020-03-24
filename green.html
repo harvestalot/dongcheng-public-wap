@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>给咱的生活添点绿-公园绿地</title>
+    <link rel="stylesheet" href="assets/css/normalize.min.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1560560_zy04u59zw5.css">
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper.min.css?V2020022302">
+    <link rel="stylesheet" href="assets/css/main.css?V2020022302">
+    <link type="text/css" href="./assets/mapdata/css/basic.css?V2020022302" rel="stylesheet">
+    <link type="text/css" href="./assets/mapdata/css/switch.css?V2020022302" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="assets/img/logo.png" class="logo" /></a>
+        <div class="menu-toggle">
+            <i class="iconfont icon-menu"></i>
+        </div>
+        <nav class="menu">
+            <div class="menu-items">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="park.html">咱家的车往哪儿停</a></li>
+                    <li><a href="tour.html">咱在东城玩点啥</a></li>
+                    <li><a href="eat.html">舌尖上的东城</a></li>
+                    <li><a href="convenient.html">生活便利度</a></li>
+                    <li class="active"><a href="green.html">给咱的生活添点绿</a></li>
+                    <li><a href="heat.html">活力东城</a></li>
+                </ul>
+                <div class="btns">
+                    <a href="" class="btn block">文化线路地图</a>
+                    <a href="" class="btn block">北新桥街道体检平台</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <section class="main park-main">
+        <div class="main-header">
+            <h2 class="title title-icon">给咱的生活添点绿</h2>
+        </div>
+        <div class="conv-select">
+            <div>内容分类：</div>
+            <div class="select-wrap iconfont">
+                <select name="person_type" class="select_jump">
+                    <option value="green.html" selected>公园绿地</option>
+                    <option value="hthw.html">胡同环卫</option>
+                </select>
+            </div>
+        </div>
+        <div id="banner" class="banner">
+            <div class="swiper-container default-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/img/green-slider1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/conv-slider1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/green-slider1.jpg" />
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="tabs-with-bg">
+            <div class="tabs-wrap">
+                <div class="widget widget-tab">
+                    <input type="radio" name="widget-tab" id="tab1" checked="checked" />
+                    <input type="radio" name="widget-tab" id="tab2" />
+                    <input type="radio" name="widget-tab" id="tab3" />
+                    <div class="widget-title w100">
+                        <ul class="w100">
+                            <li class="tab1">
+                                <label for="tab1"><i class="iconfont icon-question-circle"></i><span>问题</span></label>
+                            </li>
+                            <li class="tab2">
+                                <label for="tab2"><i class="iconfont icon-measures"></i><span>措施</span></label>
+                            </li>
+                            <li class="tab3">
+                                <label for="tab3"><i class="iconfont icon-fasong"></i><span>未来</span></label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget-box">
+                        <ul id="problem_box" class="tab-box1"></ul>
+                        <ul id="measures_box" class="tab-box2"></ul>
+                        <ul id="future_box" class="tab-box3"></ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tabs-bg w100 rel l0 t0">
+                <img src="assets/img/bg-green-tabs.png" class="w100 l0 b0 abs" />
+            </div>
+        </div>
+
+        <div class="white-gap"></div>
+        <div class="park-map">
+            <div id="main_map" class="w100 h100"></div>
+            <!-- <img src="assets/img/green-map.jpg" /> -->
+        </div>
+
+        <div class="default-chart rel l0 squard-shadow">
+            <div class="echarts_title">公园绿地</div>
+            <div id="green_land_coverage_content" class="chart_content_box fraction_coverage_content"></div>
+            <div id="green_land_bar_content" class="chart_content_box facilities_bar_content"></div>
+            <!-- <img src="assets/img/green-chart.jpg" class="w100 l0 b0 block" /> -->
+        </div>
+    </section>
+
+    <footer>
+        <img src="assets/img/logo-footer.png" class="logo-footer" />
+        <a href="" class="link-footer">关于我们</a>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/vendor/jquery.mobile-events.min.js"></script>
+    <script src="assets/vendor/swiper/swiper.min.js"></script>
+    <script src="assets/js/menu.js?V2020022302"></script>
+    <script src="assets/js/comm.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/basic_config.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/green_land.js?V2020022302"></script><!--公园绿地-->
+</body>
+
+</html>

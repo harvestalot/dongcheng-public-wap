@@ -1,0 +1,25 @@
+.news-blocks h1{
+    text-align: center;
+}
+.news-blocks h2{
+    font-size: 16px;
+    text-align: center;
+}
+.news-blocks h5{
+    font-size: 12px;
+    margin: 10px 0;
+    text-align: center;
+}
+.news-blocks img{
+	width: 100%;
+	height: auto;
+}
+.news-blocks .title{
+    width: 50px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    background-color: #b19d8d;
+    border-radius: 4px;
+}

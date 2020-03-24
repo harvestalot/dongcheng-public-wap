@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>活力东城</title>
+    <link rel="stylesheet" href="assets/css/normalize.min.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1560560_zy04u59zw5.css">
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/main.css?V2020022302">
+    <link type="text/css" href="./assets/mapdata/css/basic.css?V2020022302" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="assets/img/logo.png" class="logo" /></a>
+        <div class="menu-toggle">
+            <i class="iconfont icon-menu"></i>
+        </div>
+        <nav class="menu">
+            <div class="menu-items">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="park.html">咱家的车往哪儿停</a></li>
+                    <li><a href="tour.html">咱在东城玩点啥</a></li>
+                    <li><a href="eat.html">舌尖上的东城</a></li>
+                    <li><a href="convenient.html">生活便利度</a></li>
+                    <li><a href="green.html">给咱的生活添点绿</a></li>
+                    <li class="active"><a href="heat.html">活力东城</a></li>
+                </ul>
+                <div class="btns">
+                    <a href="" class="btn block">文化线路地图</a>
+                    <a href="" class="btn block">北新桥街道体检平台</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <section class="main main-heat-cat">
+        <div class="main-header">
+            <a href="heat.html"><i class="iconfont icon-arrowback"></i></a>
+            <div class="bread_crumb">活力东城&nbsp;/&nbsp;<span id="bread_crumb_title"></span></div>
+        </div>
+        <div class="sub-header">
+            <h4 id="heat_type_title" class="tcenter p-color"></h4>
+            <div class="select-wrap iconfont tour-cat">
+                <select id="heat_type_select" name="tour_cat" class="select_jump">
+                    <option value="">分类</option>
+                    <option value="文化遗产">文化遗产</option>
+                    <option value="历史街区">历史街区</option>
+                    <option value="公园">公园</option>
+                    <option value="商圈">商圈</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="tour-cat-map-wrap rel">
+            <div id="main_map" class="w100 h100"></div>
+            <div id="timeline" class="timeline"></div>
+            <!-- <img src="assets/img/heat-cat-map.jpg" class="w100 h100 map-img" /> -->
+            <ul id="vitality_type" class="method-to-dest abs">
+                <li data_type="culture">文化活力</li>
+                <li data_type="population">人口活力</li>
+            </ul>
+        </div>
+
+
+        <div id="vitality_type_list" class="tours"></div>
+    </section>
+
+    <footer>
+        <img src="assets/img/logo-footer.png" class="logo-footer" />
+        <a href="" class="link-footer">关于我们</a>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/vendor/jquery.mobile-events.min.js"></script>
+    <!-- <script src="assets/js/comm.js"></script> -->
+    <script src="assets/js/menu.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/basic_config.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/lnglat_transformation.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/heat_vitality_detail.js?V2020022302"></script>
+</body>
+
+</html>

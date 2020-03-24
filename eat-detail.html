@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>便宜坊烤鸭店</title>
+    <link rel="stylesheet" href="assets/css/normalize.min.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1560560_zy04u59zw5.css">
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper.min.css?V2020022302">
+    <link rel="stylesheet" href="assets/css/main.css?V2020022302">
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="assets/img/logo.png" class="logo" /></a>
+        <div class="menu-toggle">
+            <i class="iconfont icon-menu"></i>
+        </div>
+        <nav class="menu">
+            <div class="menu-items">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="park.html">咱家的车往哪儿停</a></li>
+                    <li><a href="tour.html">咱在东城玩点啥</a></li>
+                    <li class="active"><a href="eat.html">舌尖上的东城</a></li>
+                    <li><a href="convenient.html">生活便利度</a></li>
+                    <li><a href="green.html">给咱的生活添点绿</a></li>
+                    <li><a href="heat.html">活力东城</a></li>
+                </ul>
+                <div class="btns">
+                    <a href="" class="btn block">文化线路地图</a>
+                    <a href="" class="btn block">北新桥街道体检平台</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <section class="main">
+        <div class="main-header">
+            <a href="javascript:history.go(-1);"><i class="iconfont icon-arrowback"></i></a>
+            <div class="bread_crumb">舌尖上的东城&nbsp;/&nbsp;<span id="bread_crumb_title"></span></div>
+        </div>
+
+
+        <div class="tour-cat-map-wrap rel">
+            <div id="main_map" class="w100 h100"></div>
+            <!-- <img src="assets/img/tour-cat-map.jpg" class="w100 h100 map-img" /> -->
+            <ul id="line_path_type" class="method-to-dest abs">
+                <li data_type="walking">步行</li>
+                <li data_type="rading">骑行</li>
+                <li data_type="transfer">公交</li>
+                <li data_type="driving">驾车</li>
+            </ul>
+        </div>
+
+
+        <div class="detail-blocks intro">
+            <div class="item squard-shadow">
+                <h3 id="detail_name" class="s-color tcenter">便宜坊烤鸭店</h3>
+                <div>
+                    <img id="detail_img" src="assets/mapdata/images/eat_default.jpg" class="w100 block" />
+                    <div>
+                        <h4 class="s-color">简介</h4>
+                        <div id="introduction" class="may-collapse s-color">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <!--  <div class="item item-with-left-bar squard-shadow">
+                <div>
+                    <img src="assets/img/doctor.png" class="abs item-left-img" />
+                    <div>
+                        <h4 class="s-color">到达方式</h4>
+                        <div id="arrival_pattern" class="may-collapse p-color">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="item item-with-left-bar squard-shadow">
+                <div>
+                    <img src="assets/img/doctor.png" class="abs item-left-img" />
+                    <div>
+                        <h4 class="s-color">出行路线</h4>
+                        <div id="trip_line_path" class="may-collapse p-color"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <img src="assets/img/logo-footer.png" class="logo-footer" />
+        <a href="" class="link-footer">关于我们</a>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/vendor/jquery.mobile-events.min.js"></script>
+    <script src="assets/vendor/readmore.min.js"></script>
+    <script src="assets/js/menu.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/basic_config.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/lnglat_transformation.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/eat.js?V2020022302"></script>
+    <script>
+        $(document).ready(function () {
+            $('.may-collapse').readmore({
+                speed: 200,
+                lessLink: '<a class="collapsebtn morebtn" href="#">收起内容<i class="iconfont icon-xiejiantou-up"></i></a>',
+                moreLink: '<a class="collapsebtn lessbtn" href="#" >展开更多<i class="iconfont icon-xiejiantou-down"></i></a>',
+                afterToggle: function (trigger, element, expanded) {
+                    expanded ? element.removeClass("closed") : element.addClass("closed");
+                },
+                blockProcessed: function (element, collapse) {
+                    collapse ? element.addClass("closed") : element.removeClass("closed");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

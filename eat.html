@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>舌尖上的东城-东城区街区更新公众平台</title>
+    <link rel="stylesheet" href="assets/css/normalize.min.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1560560_zy04u59zw5.css">
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper.min.css?V2020022302">
+    <link rel="stylesheet" href="assets/css/main.css?V2020022302">
+    <link type="text/css" href="./assets/mapdata/css/basic.css?V2020022302" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="assets/img/logo.png" class="logo" /></a>
+        <div class="menu-toggle">
+            <i class="iconfont icon-menu"></i>
+        </div>
+        <nav class="menu">
+            <div class="menu-items">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="park.html">咱家的车往哪儿停</a></li>
+                    <li><a href="tour.html">咱在东城玩点啥</a></li>
+                    <li class="active"><a href="eat.html">舌尖上的东城</a></li>
+                    <li><a href="convenient.html">生活便利度</a></li>
+                    <li><a href="green.html">给咱的生活添点绿</a></li>
+                    <li><a href="heat.html">活力东城</a></li>
+                </ul>
+                <div class="btns">
+                    <a href="" class="btn block">文化线路地图</a>
+                    <a href="" class="btn block">北新桥街道体检平台</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <section class="main main-eat">
+        <div class="main-header">
+            <h2 class="title title-icon">舌尖上的东城</h2>
+            <!-- <div class="search"><input type="text" name="keyword" /><i class="iconfont icon-chaxun"></i></div> -->
+        </div>
+        <div id="banner" class="banner">
+            <div class="swiper-container default-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/img/tour-slider1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/tour-slider1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/park-slider1.jpg" />
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="eat-map-wrap rel">
+            <div id="main_map" class="w100 h100"></div>
+            <!-- <img src="assets/img/eat-map.jpg" class="w100 h100 fit-cover"> -->
+            <div id="scenic_spot_type" class="s-tabs eat-s-tabs abs squard-shadow p-color">
+                <div class="active" data-cat="京城老字号">京城老字号</div>
+                <div data-cat="人气前100">人气前100</div>
+            </div>
+           <!--  <ul id="line_path_type" class="method-to-dest eat-method-to-dest abs">
+                <li class="active" data_type="walking">步行</li>
+                <li data_type="rading">骑行</li>
+                <li data_type="transfer">公交</li>
+                <li data_type="driving">驾车</li>
+            </ul> -->
+        </div>
+
+        <div id="restaurant_list" class="place-list squard-shadow">
+        </div>
+    </section>
+
+    <footer>
+        <img src="assets/img/logo-footer.png" class="logo-footer" />
+        <a href="" class="link-footer">关于我们</a>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/vendor/jquery.mobile-events.min.js"></script>
+    <script src="assets/vendor/swiper/swiper.min.js"></script>
+    <script src="assets/js/menu.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/basic_config.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/lnglat_transformation.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/eat.js?V2020022302"></script>
+    <script>
+        // $(document).ready(function () {
+        //     var swiper = new Swiper('.swiper-container', {
+        //         pagination: {
+        //             el: '.swiper-pagination',
+        //         },
+        //     });
+
+        //     /**列表切换**/
+        //     $(".s-tabs>div").on("tap", function () {
+        //         var type = $(this).data("type") == 1 ? '老字号' : '前100';
+        //         $(".s-tabs>div").removeClass("active");
+        //         $(this).addClass("active");
+        //         loadItems(type)
+        //     });
+
+        //     /**加载伪列表数据**/
+        //     function loadItems(type) {
+        //         var sample = `
+        //         <div class="single-place">
+        //             <h4>便宜坊烤鸭店(${type})</h4>
+        //             <div class="intro">
+        //                 菜系：京菜<br />
+        //                 北京市东城区崇文门外大街3-5号新世界百货青春馆3层
+        //                 <div>
+        //                     <a href="eat-detail.html" class="link-btn">查看详情&nbsp;&gt;</a>
+        //                 </div>
+        //             </div>
+        //         </div>`;
+        //         $(".place-list").html(sample.repeat(12));
+        //     }
+
+        //     /**列表项展开控制**/
+        //     $(".place-list").on("tap", ".single-place", function () {
+        //         $(this).toggleClass("open");
+        //     });
+
+        //     /**允许列表项查看详情**/
+        //     $(".place-list").on("tap", ".link-btn", function (e) {
+        //         e.stopPropagation();
+        //     });
+
+        // });
+    </script>
+</body>
+
+</html>

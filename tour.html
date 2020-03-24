@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>咱在东城玩点啥-东城区街区更新公众平台</title>
+    <link rel="stylesheet" href="assets/css/normalize.min.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1560560_zy04u59zw5.css">
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper.min.css?V2020022302">
+    <link rel="stylesheet" href="assets/css/main.css?V2020022302">
+    <link type="text/css" href="./assets/mapdata/css/basic.css?V2020022302" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="assets/img/logo.png" class="logo" /></a>
+        <div class="menu-toggle">
+            <i class="iconfont icon-menu"></i>
+        </div>
+        <nav class="menu">
+            <div class="menu-items">
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="park.html">咱家的车往哪儿停</a></li>
+                    <li class="active"><a href="tour.html">咱在东城玩点啥</a></li>
+                    <li><a href="eat.html">舌尖上的东城</a></li>
+                    <li><a href="convenient.html">生活便利度</a></li>
+                    <li><a href="green.html">给咱的生活添点绿</a></li>
+                    <li><a href="heat.html">活力东城</a></li>
+                </ul>
+                <div class="btns">
+                    <a href="" class="btn block">文化线路地图</a>
+                    <a href="" class="btn block">北新桥街道体检平台</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+
+    <section class="main">
+        <div class="main-header">
+            <h2 class="title title-icon">咱在东城玩点啥</h2>
+            <!-- <div class="search"><input type="text" name="keyword" /><i class="iconfont icon-chaxun"></i></div> -->
+        </div>
+        <div id="banner" class="banner">
+            <div class="swiper-container default-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/img/tour-slider1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/tour-slider1.jpg" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/park-slider1.jpg" />
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="tour-category">
+            <h2 class="p-color tcenter">分类</h2>
+            <div class="cat-list s-color">
+                <div>
+                    <a href="tour-cat-list.html?type=东城景点">
+                        <div><i class="iconfont icon-beijingtiantan"></i></div>
+                        <h3>东城景点</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="tour-cat-list.html?type=艺术空间">
+                        <div><i class="iconfont icon-yishu"></i></div>
+                        <h3>艺术空间</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="tour-cat-list.html?type=博物馆">
+                        <div><i class="iconfont icon-bowuguanxinxi"></i></div>
+                        <h3>博物馆</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="tour-cat-list.html?type=书屋">
+                        <div><i class="iconfont icon-dangyuanshuwu"></i></div>
+                        <h3>书屋</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="tour-cat-list.html?type=咖啡馆">
+                        <div><i class="iconfont icon-kafeiguan"></i></div>
+                        <h3>咖啡馆</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="tour-cat-list.html?type=茶/酒馆">
+                        <div><i class="iconfont icon-chaguan"></i></div>
+                        <h3>茶/酒馆</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tours tour-recommend">
+            <h2 class="p-color tcenter">推荐</h2>
+            <div id="recommend_list"></div>
+            <!-- <div class="more p-color tcenter">加载更多</div> -->
+        </div>
+    </section>
+
+    <footer>
+        <img src="assets/img/logo-footer.png" class="logo-footer" />
+        <a href="" class="link-footer">关于我们</a>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/vendor/jquery.mobile-events.min.js"></script>
+    <script src="assets/vendor/swiper/swiper.min.js"></script>
+    <script src="assets/js/menu.js?V2020022302"></script>
+    <script src="./assets/mapdata/js/basic_config.js?V2020022302"></script>
+    <script type="text/javascript">
+        $(function(){
+            serveRequest("get", service_config.data_server_url+"banner/getBannerList",{ type:"PLAY" },function(result){
+                var data = JSON.parse(Decrypt(result.data.resultKey));
+                var banner_str = '';
+                var toUrl = "./assets/bannerSubPage/visit_scenic_spots/banner_"
+                for(var i = 0; i < data.length; i++){
+                    var item = data[i];
+                    banner_str += '<div class="swiper-slide"><a href="'+toUrl+(i+1)+".html"+'"><img src='+ service_config.server_img_url + item.url +' width="100%" data-href='+ toUrl+(i+1)+".html" +' ></div>'
+                }
+                $("#banner .swiper-wrapper").html(banner_str);
+                startBanner();//启动banner
+            })
+            var _this = this;
+            serveRequest("get", service_config.data_server_url + "scenicSpot/getScenicSpotList", { type : "东城景点", name : "" }, function(result){
+                var data = JSON.parse(Decrypt(result.data.resultKey));
+                var scenic_spot_art_space_list_str = "";
+                for(var i = 0; i < data.length; i++){
+                    var item = data[i];
+                    scenic_spot_art_space_list_str += "<a href='tour-detail.html?type=东城景点&name="+ item.name +"' class='item block squard-shadow'>"+
+                        "<h3 class='s-color tcenter'>"+ item.name +"</h3>"+
+                        "<div>"+
+                            "<img src="+service_config.server_img_url+ "images/play/scenicspot/" +((item.name).replace(/\s*/g,''))+'.jpg'+" class='w100 block' />"+
+                        "</div>"+
+                    "</a>";
+                }
+                $("#recommend_list").html(scenic_spot_art_space_list_str);
+            })
+        })
+    </script>
+</body>
+
+</html>
