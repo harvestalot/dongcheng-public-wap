@@ -142,7 +142,12 @@ ScenicSpot.prototype.get_play_details = function(){
     serveRequest("get", service_config.data_server_url+ service_url,this.tourist_attractions_params,function(result){
         var data = JSON.parse(Decrypt(result.data.resultKey))[0];
         _this.arriveLocation = wgs84togcj02(data.x, data.y);
+        var img_url = "images/play/scenicspot/";
+        if(_this.tourist_attractions_params.type !== "东城景点"){
+            img_url = "images/play/culturalspace/";
+        }
         $("#play_detail_name").html(data.name);
+        $("#detail_img").attr("src", service_config.server_img_url + img_url +((data.name).replace(/\s*/g,''))+'.jpg');
         $("#introduction p").html(data.description);
         $("#strategy p").html(data.guide);
         $("#ticket_rates p").html(data.ticket);
