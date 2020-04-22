@@ -17,6 +17,7 @@ function Vitality(){
 }
 
 Vitality.prototype.init = function(){
+
     $("#bread_crumb_title").html( this.mainVitalityPointName ? this.current_type+"&nbsp;/&nbsp;"+this.mainVitalityPointName : this.current_type);
     $("#heat_type_title").html(this.current_type);
     var _this = this;
@@ -48,9 +49,11 @@ Vitality.prototype.mapInit = function(){
     //加载主地图
     this.mainMap = new AMap.Map("main_map", {
         mapStyle: 'amap://styles/4ab81766c3532896d5b265289c82cbc6',
-        center: [116.412255,39.918886],
+        center: [116.412255, 39.901886],
         zoom: 11,
     });
+
+    this.timeline();
     //加载东城边界
     this.loadBoundaryLayer();
     //默认加载所有重要区域边界
@@ -82,9 +85,9 @@ Vitality.prototype.layerInit = function(){
         this.cultureVitalityLayer.hide();
         this.loadPopulationVitalityLayer()
         this.timeline();
-        // $("#timeline").fadeIn(300);
+        $("#timeline").fadeIn(300);
     }else{
-        // $("#timeline").fadeOut(300);
+        $("#timeline").fadeOut(300);
         this.populationVitalityLayer.hide();
         this.loadCultureVitalityLayer();
     }
@@ -244,6 +247,7 @@ Vitality.prototype.timeline = function(){
     };
     var timelineChart = echarts.init(document.getElementById("timeline"));
     timelineChart.setOption(option, true);
+    $("#timeline").fadeOut(300);
     var _this = this;
     timelineChart.on("timelinechanged",function(params) {
         _this.currentTime = timeLine[params.currentIndex];

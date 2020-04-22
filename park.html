@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/vendor/swiper/swiper.min.css?V20200032801">
     <link rel="stylesheet" href="assets/css/main.css?V20200032801">
     <link type="text/css" href="./assets/mapdata/css/basic.css?V20200032801" rel="stylesheet">
-    <link type="text/css" href="./assets/mapdata/css/switch.css?V20200032801" rel="stylesheet">
+    <!-- <link type="text/css" href="./assets/mapdata/css/switch.css?V20200032801" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -94,7 +94,7 @@
 
         </div>
 
-        <div class="park-map">
+        <div class="park-map parking_map">
             <div id="main_map" class="w100 h100"></div>
             <!-- <img src="assets/img/park-map.jpg" /> -->
             <div class="map-filter squard-shadow">
@@ -111,8 +111,25 @@
                         <option value='商业停车场'>商业停车场</option>
                         <option value='路边停车场'>路边停车场</option>
                         <option value='小区停车场'>小区停车场</option>
-                        <option value='其它公共停车场'>其它公共停车场</option>
+                        <option value='其他公共停车场'>其它公共停车场</option>
                     </select>
+                </div>
+            </div>
+            <div class="map-filter squard-shadow accessibility_container">
+                <div class="select-wrap iconfont">
+                    <select id="accessibility_time" name="person_type">
+                        <option value="5" selected>5分钟</option>
+                        <option value="10">10分钟</option>
+                        <option value="15">15分钟</option>
+                    </select>
+                </div>
+                <div class="">
+                    <label class="">
+                        <input class="mui-switch mui-switch-animbg" type="checkbox" id="accessibility_btn">
+                    </label>
+                    <span class="accessibility_label">可达性</span>
+                   <!--  <input type="checkbox" name="check" class="lcs_check" id="accessibility_btn" autocomplete="off" />
+                    <span>可达性</span> -->
                 </div>
             </div>
         </div>
@@ -133,7 +150,7 @@
     <script src="assets/vendor/swiper/swiper.min.js"></script>
     <script src="assets/js/menu.js?V20200032801"></script>
     <script src="./assets/mapdata/js/basic_config.js?V20200032801"></script>
-    <script src="./assets/mapdata/lib/lc_switch.min.js?V20200032801"></script>
+    <!-- <script src="./assets/mapdata/lib/lc_switch.min.js?V20200032801"></script> -->
     <script src="./assets/mapdata/js/parking_difficult.js?V20200032801"></script><!--停车场-->
    
 </body>

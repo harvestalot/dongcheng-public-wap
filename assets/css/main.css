@@ -509,6 +509,10 @@ footer {
     position: relative;
 }
 
+.parking_map{
+    height: 8.3rem;
+}
+
 .park-map>img {
     width: 100%;
     height: 100%;
@@ -528,13 +532,15 @@ footer {
     align-items: center;
     box-sizing: border-box;
 }
+.accessibility_container{
+    top: 1.2rem;
+}
 
 .select-wrap {
     box-sizing: border-box;
     position: relative;
     background-color: #efefef;
 }
-
 .map-filter .select-wrap {
     width: 3.42rem;
     height: 0.7rem;
@@ -715,7 +721,7 @@ footer {
 }
 
 .tour-cat-map-wrap {
-    height: 5rem;
+    height: 6.5rem;
 }
 
 .method-to-dest {
@@ -728,6 +734,9 @@ footer {
 }
 .eat-method-to-dest{
     bottom:1rem;
+}
+.heat-method-to-dest{
+    bottom:1.5rem;
 }
 .method-to-dest li {
     height: .5rem;
@@ -1171,4 +1180,20 @@ footer {
     font-size: 16px;
     color: #fff;
     cursor: pointer;
+}
+
+/*描述*/
+.description{
+    position: relative;
+    top: -25px;
+    height: 60px;
+    line-height: 24px;
+    padding: 0 0.3rem;
+    box-sizing: border-box;
+    margin: 10px auto;
+}
+.heat_description{
+    position: none;
+    top: 0;
+    height: auto;;
 }

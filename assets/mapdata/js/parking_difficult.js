@@ -1,6 +1,6 @@
 //停车难
 function ParkingDifficult(){
-    this.reachability_url = "http://114.64.228.103/reachcircle/walkServlet";
+    this.reachability_url = "http://114.64.228.104:8070/reachcircle/walkServlet";
     this.mainMap = "";
     this.parkingMarkers = [];
     this.population_type = "";//人口图层类型
@@ -32,7 +32,6 @@ ParkingDifficult.prototype.init = function(){
     this.loadMeasuresSection();
     this.loadFutureSection();
     this.handleAccessibility();
-    // this.getMapLegend();
     this.mapInit();
     this.layerInit();
     this.initPopulationHeat();
@@ -104,21 +103,9 @@ ParkingDifficult.prototype.loadFutureSection = function(){
 //操作可达性工具
 ParkingDifficult.prototype.handleAccessibility = function(){
     var _this = this;
-    $('#accessibility_btn').lc_switch("开启", "关闭");
-    // 时间选择
-    $("#accessibility_time").on("change",function(){
-        _this.time = $(this).val();
-        _this.accessibility_initialize();
-    })
-    // 停车场类型
-    $("#parking_type").on("change",function(){
-        _this.mainMap.clearMap();
-        _this.area_cultural_point_data = [];
-        _this.accessibility_resources();
-    })
-    $('body').delegate('#accessibility_btn', 'lcs-statuschange', function() {
+    // $('#accessibility_btn').lc_switch("开启", "关闭");
+    $("#accessibility_btn").on("change",function(){
         if($(this).is(':checked')){
-            $("#map_legend,#population_legend").removeClass("map_legend_animation");
             _this.reset();
             //点击地图区域
             _this.mainMap.on('click', function(event){
@@ -126,44 +113,31 @@ ParkingDifficult.prototype.handleAccessibility = function(){
                 _this.accessibility_initialize();
             });
         }else{
-            $("#map_legend,#population_legend").addClass("map_legend_animation");
-            _this.mapLegend["工作地停车场"] = true;
-            //默认选中第一个图例
-            $("#map_legend input").each(function(i){
-                i === 0? $(this).prop("checked",true): $(this).prop("checked",false);
-            });
-            $("#population_legend input").each(function(i){
-                $(this).prop("checked",false);
-            });
+            // _this.mapLegend["工作地停车场"] = true;
+            // //默认选中第一个图例
+            // $("#map_legend input").each(function(i){
+            //     i === 0? $(this).prop("checked",true): $(this).prop("checked",false);
+            // });
+            // $("#population_legend input").each(function(i){
+            //     $(this).prop("checked",false);
+            // });
             _this.mainMap.clearMap();
             _this.area_cultural_point_data = [];
             _this.loadParkingLotLayer();
         }
-
-    });
-}
-// 获取地图图例
-ParkingDifficult.prototype.getMapLegend = function(){
-    var _this = this;
-    _this.current_parking = $("#parking_type_select option:selected").val();
-    _this.mainMap? _this.mainMap.remove(_this.parkingMarkers) : "";
-    _this.loadParkingLotLayer();
-    // $("#map_legend input").each(function(i){
-    //     $(this).on("click",function(){
-    //         //清除居住人口所有选中图例
-    //         $("#population_legend input").each(function(i){
-    //             if($(this).prop("checked")){
-    //                 // _this.reset();
-    //                 // _this.mapInit();
-    //                 // _this.layerInit();
-    //             }
-    //             // $(this).prop("checked",false);
-    //         });
-    //         _this.mapLegend[$(this).val()] = $(this).prop("checked");
-    //         _this.mainMap.remove(_this.parkingMarkers);
-    //         _this.loadParkingLotLayer();
-    //     })
-    // });
+    })
+    // 时间选择
+    $("#accessibility_time").on("change",function(){
+        _this.time = $(this).val();
+        _this.accessibility_initialize();
+    })
+    // 停车场类型
+    $("#parking_type_select").on("change",function(){
+        _this.current_parking = $("#parking_type_select option:selected").val();
+        _this.mainMap.clearMap();
+        _this.area_cultural_point_data = [];
+        _this.accessibility_resources();
+    })
 }
 //地图初始化
 ParkingDifficult.prototype.mapInit = function(){
@@ -172,7 +146,7 @@ ParkingDifficult.prototype.mapInit = function(){
         // 隐藏默认楼块--区域面（bg）/道路（road）/建筑物（building）/标注（point）
         // features: ['bg',],
         mapStyle: 'amap://styles/4ab81766c3532896d5b265289c82cbc6',
-	    center: [116.412255,39.908886],
+	    center: [116.412255, 39.908886],
 	    zoom: 12,
     });
 }
@@ -491,7 +465,7 @@ ParkingDifficult.prototype.load_reachability_layer = function(){
 }
 //如停车场类型选择，判断停车场点是否在可达性范围之内
 ParkingDifficult.prototype.accessibility_resources = function(){
-    var parking_type = $("#parking_type option:selected").val();
+    var parking_type = this.current_parking;
     var _this = this;
     $.get(service_config.file_server_url+'parking_lot_data.json', function (data) {
         // var data = JSON.parse(data);
