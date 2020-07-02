@@ -163,7 +163,7 @@ EducationFacilities.prototype.loadEducationPointLayer = function(){
                     extData:item.properties
                 });
                 marker.on('click', function (ev) {
-                    var properties = ev.target.B.extData;
+                    var properties = ev.target.getExtData();
                     _this.loadInfo(properties, ev.lnglat);
                 });
                 _this.parkingMarkers.push(marker);

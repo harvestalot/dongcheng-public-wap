@@ -355,7 +355,7 @@ Eat.prototype.loadScenicSpotLayer = function(){
                 extData:item
             });
             marker.on('click', function (ev) {
-                var properties = ev.target.B.extData;
+                var properties = ev.target.getExtData();
                 $("#scenic_spot_info .name").html(properties.name);
                 $("#scenic_spot_info .info").html("菜系："+ properties.cookingStyle);
                 $("#scenic_spot_info .info").html("餐馆地址："+ properties.address);
